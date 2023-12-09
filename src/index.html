@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
-  </head>
-  <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
-  </body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Excusas</title>
+    </head>
+    <body>
+      <div id="excuse"></div>
+      <script>
+              let generateExcuse = () => {
+                  // Listas de opciones para cada parte de la excusa
+                  let who = ["El perro", "Mi abuela", "El cartero", "Mi pájaro"];
+                  let action = ["comió", "orinó", "llevó", "defecó"];
+                  let what = ["mi tarea", "mi celular", "mi auto"];
+                  let when = [
+                      "antes de la clase",
+                      "cuando dormía",
+                      "mientras hacía ejercicio",
+                      "durante el almuerzo",
+                      "mientras oraba"
+                  ];
+
+                  let q = Math.floor(Math.random() * who.length);
+                  let a = Math.floor(Math.random() * action.length);
+                  let qu = Math.floor(Math.random() * what.length);
+                  let c = Math.floor(Math.random() * when.length);
+      
+                  var excuseText = who[q] + " se " + action[a] + " " + what[qu] + " justo " + when[c];
+      
+                  // Devolver la excusa generada
+                  return '<p>' + excuseText + '</p>';
+              };
+      
+              // Cuando la ventana se carga completamente, ejecutar la función
+              window.onload = () => {
+                  // Obtener el elemento con el ID 'excuse'
+                  var excuseElement = document.getElementById('excuse');
+      
+                  // Establecer el contenido del elemento con una excusa generada
+                  excuseElement.innerHTML = generateExcuse();
+              };
+          </script>
+    </body>
+</head>
